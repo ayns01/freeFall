@@ -2,10 +2,14 @@
 <html>
   <head>
     <meta charset="utf-8">
-    <title>Breakout</title>
+    <title>free fall</title>
     <style>
       * { padding: 0; margin:0 }
-      canvas { background: #eee; display: block; margin: 0 auto; }
+      canvas { 
+        background: linear-gradient(-135deg, #E4A972, #9941D8);
+        display: block; 
+        margin: 0 auto; 
+      }
     </style>
   </head>
   <body>
@@ -15,16 +19,16 @@
   <script>
   var canvas = document.getElementById("myCanvas");
   var ctx = canvas.getContext("2d");
-  var v = 0.0;
+  var y = 30;
   var g = 9.8;
-  var t = 0.2;
-  var e = -0.8;
-  var y = 15;
+  var v = 0.0;
+  var t = 0.15;
+  var e = -0.7;
 
   function drawBall() {
     ctx.beginPath();
     ctx.arc(canvas.width/2, y , 30, 0, Math.PI*2);
-    ctx.fillStyle = "rgba(63, 127, 191, 0.6)";
+    ctx.fillStyle = "rgba(240, 240, 240, 0.8)";
     ctx.fill();
     ctx.closePath();
   }
