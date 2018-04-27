@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Breakout</title>
+    <style>
+      * { padding: 0; margin:0 }
+      canvas { background: #eee; display: block; margin: 0 auto; }
+    </style>
+  </head>
+  <body>
+  
+  <canvas id="myCanvas" width="480" height="320"></canvas>
+
+  <script>
+  var canvas = document.getElementById("myCanvas");
+  var ctx = canvas.getContext("2d");
+  var v = 0.0;
+  var g = 9.8;
+  var t = 0.2;
+  var e = -0.8;
+  var y = 15;
+
+  function drawBall() {
+    ctx.beginPath();
+    ctx.arc(canvas.width/2, y , 30, 0, Math.PI*2);
+    ctx.fillStyle = "rgba(63, 127, 191, 0.6)";
+    ctx.fill();
+    ctx.closePath();
+  }
+
+  function draw() {
+    ctx.clearRect(0, 0, canvas.width, canvas.height);
+ 
+    drawBall();
+
+    v += g * t;
+    y += v * t;
+
+    if (y > canvas.height - 30) {
+      y = canvas.height - 30;
+      v = v * e;
+    } 
+
+    requestAnimationFrame(draw);
+  }
+  
+  draw();
+  </script>
+
+  </body>
+</html>
+
